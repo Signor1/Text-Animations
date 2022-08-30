@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Animation One</title>
+</head>
+
+<body>
+    <!-- Texts  -->
+    <ul class="container">
+        <li style="--i:1">A</li>
+        <li style="--i:1.3">N</li>
+        <li style="--i:1.6">I</li>
+        <li style="--i:1.9">M</li>
+        <li style="--i:2.2">A</li>
+        <li style="--i:2.5">T</li>
+        <li style="--i:2.8">I</li>
+        <li style="--i:3.1">O</li>
+        <li style="--i:3.4">N</li>
+    </ul>
+
+
+    <!-- css styling  -->
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            font-size: 3rem;
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        /* <!-- Using the custom property `--i` to calculate the animation duration. --> */
+        li {
+            animation-name: bubble;
+            animation-duration: calc(var(--i) * 1s);
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-in-out;
+        }
+
+        /* keyframes */
+        @keyframes bubble {
+            0% {
+                opacity: 0;
+                /* transform: translateY(-100px); */
+                transform: scale(0);
+            }
+
+            70% {
+                opacity: 1;
+                transform: scale(1.5);
+            }
+
+            100% {
+                opacity: 1;
+                /* transform: translateY(0); */
+                transform: scale(1);
+            }
+        }
+    </style>
+</body>
+
+</html>
